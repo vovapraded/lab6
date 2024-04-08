@@ -4,18 +4,18 @@ import org.example.managers.Collection;
 
 import org.example.utility.*;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 /**
  * The delete item command
  */
-public class RemoveKey extends Command implements Serializable {
-    @Serial
-    private static final long serialVersionUID = "RemoveKey".hashCode();
+public class Remove_Key implements Command {
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Remove_Key(){
 
-    public void execute(){
-        var idstr = stringArg;
+    }
+
+    public void execute(String idstr){
+
         collection.removeElement(ValidateId.validateId(idstr,false,collection));
         console.print("Элемент удалён");
     }

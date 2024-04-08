@@ -1,17 +1,16 @@
 package org.example.dto;
 
-import java.io.Serial;
-import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 /**
  * a class for storing ticket data
  */
-public class Ticket extends ElementsWithId implements Comparable<Ticket>, Serializable {
-    @Serial
-    private static final long serialVersionUID = "Ticket".hashCode();
+public class Ticket extends ElementsWithId implements Comparable<Ticket>{
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long price; //Поле не может быть null, Значение поля должно быть больше 0
     private Long discount; //Поле может быть null, Значение поля должно быть больше 0, Максимальное значение поля: 100
     private Boolean refundable; //Поле может быть null

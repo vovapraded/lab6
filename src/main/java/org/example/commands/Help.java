@@ -1,6 +1,8 @@
 package org.example.commands;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Scanner;
 import org.example.dto.*;
 import org.example.utility.*;
@@ -10,12 +12,14 @@ import org.example.managers.*;
 /**
  * Command for help info
  */
-public class Help extends Command implements Serializable {
-    @Serial
-    private static final long serialVersionUID = "Help".hashCode();
+public class Help implements Command {
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Help(){
 
+    }
     @Override
-    public void execute() {
+    public void execute(String arg) {
         String filePath = "/help.txt";
         InputStream inputStream = getClass().getResourceAsStream(filePath);
         if (inputStream != null) {

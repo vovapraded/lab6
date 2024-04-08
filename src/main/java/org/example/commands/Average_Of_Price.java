@@ -1,19 +1,20 @@
 package org.example.commands;
 
-import lombok.NoArgsConstructor;
-
-import java.io.Serial;
-import java.io.Serializable;
+import org.example.managers.*;
+import org.example.utility.*;
 
 
 /**
  * The command to display the average price
  */
-public class AverageOfPrice extends Command implements Serializable {
-    @Serial
-    private static final long serialVersionUID = "AverageOfPrice".hashCode();
+public class Average_Of_Price implements Command {
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Average_Of_Price(){
+
+    }
     @Override
-    public void execute() {
+    public void execute(String arg) {
         if (collection.getAveragePrice() == -1) {
             console.print("Коллекция пуста");
         } else {

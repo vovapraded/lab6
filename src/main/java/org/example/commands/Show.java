@@ -5,21 +5,21 @@ import org.example.managers.Collection;
 import org.example.utility.Console;
 import org.example.utility.InvalidFormatExeption;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 
 /**
  * The command outputs a collection
  */
-public class Show extends Command implements Serializable {
-    @Serial
-    private static final long serialVersionUID = "Show".hashCode();
+public class Show implements Command{
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Show(){
 
+    }
 
     @Override
-    public void execute() {
+    public void execute(String arg) {
             if (collection.getHashMap().isEmpty()){
                 console.print("Коллекция пуста");
             }

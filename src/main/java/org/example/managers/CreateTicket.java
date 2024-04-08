@@ -1,21 +1,22 @@
 package org.example.managers;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import org.example.commands.*;
 import org.example.dto.*;
-import org.example.utility.Console;
-import org.example.utility.TypesOfArgs;
-import org.example.utility.Validator;
+import org.example.utility.*;
 
 /**
  * The class is responsible for creating a ticket from the console
  */
 
 public class CreateTicket {
-    private static final Console console =Console.getInstance();
-    private static final Collection collection=Collection.getInstance();
+    private final Console console =Console.getInstance();
+    private final Collection collection=Collection.getInstance();
     public CreateTicket(){
 
     }
-    public static Ticket createTicket(Long id) {
+    public  Ticket createTicket(Long id) {
 
         String name = "";
         while (name.isEmpty() || name.contains(" ")|| name.contains("\t")|| name.contains("\n")) {

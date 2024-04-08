@@ -1,18 +1,11 @@
 package org.example.dto;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 /**
  * Enum for the venue type
  */
-public enum VenueType implements Serializable {
-
-    BAR,
+public enum VenueType  {BAR,
     THEATRE,
     CINEMA,
     STADIUM;
-    @Serial
-    private static final long serialVersionUID = "VenueType".hashCode();
 
 }

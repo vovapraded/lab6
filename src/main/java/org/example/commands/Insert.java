@@ -5,21 +5,23 @@ import org.example.managers.*;
 import org.example.utility.*;
 import org.example.dto.*;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 /**
  * Add item command
  */
-public class Insert extends Command implements Serializable {
-    @Serial
-    private static final long serialVersionUID = "Insert".hashCode();
+public class Insert implements Command {
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+
+    public Insert() {
+
+
+    }
 
     @Override
-    public void execute() {
-        var idstr = stringArg;
+    public void execute(String idstr) {
         Long id = ValidateId.validateId(idstr, true, collection);
-        collection.insertElement(ticketArg);
+        CreateTicket creator = new CreateTicket();
+        collection.insertElement(creator.createTicket(id));
         console.print("Билет успешно введён");
     }
 }

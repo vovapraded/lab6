@@ -4,18 +4,17 @@ import org.example.managers.Collection;
 import org.example.utility.Console;
 import org.example.utility.InvalidFormatExeption;
 
-import java.io.Serial;
-import java.io.Serializable;
-
 /**
  * The command outputs information about the collection
  */
-public class Info extends Command implements Serializable {
-    @Serial
-    private static final long serialVersionUID = "Info".hashCode();
+public class Info implements  Command {
+    private final Collection collection = Collection.getInstance();
+    private final  Console console = Console.getInstance();
+    public Info(){
 
+    }
     @Override
-    public void execute(){
+    public void execute(String arg){
         String s = "Дата инициализации "+collection.getCurrentDate()+
                 ", Тип коллекции - HashMap, Кол-во элементов "+collection.getCountOfElements();
         console.print(s);

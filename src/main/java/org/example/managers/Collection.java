@@ -1,20 +1,17 @@
 package org.example.managers;
+import java.util.*;
 
-import org.example.dto.Ticket;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.example.dto.*;
 
-import java.io.Serial;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
+import static lombok.AccessLevel.PRIVATE;
 
 /**
  * The class that manages the collection
  */
-
-    public  class Collection  {
-
+public class Collection {
     public static Collection getInstance() {
         return INSTANCE;
     }
@@ -24,7 +21,7 @@ import java.util.Iterator;
     private HashMap<Long,Ticket> hashMap = new HashMap<>();
 
 
-    private Collection(){
+    private Collection (){
         currentDate = new Date();
     }
     public void clearCollection(){

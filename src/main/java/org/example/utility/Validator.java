@@ -5,6 +5,7 @@ import org.example.dto.VenueType;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import org.example.utility.*;
 
 
 public class Validator {
@@ -13,9 +14,6 @@ public class Validator {
      */
     public  Validator() {}
     public static boolean validate(String arg, TypesOfArgs type, boolean isCanBeNull)   {
-        if (isCanBeNull && arg==null){return true;}
-        if (!isCanBeNull && arg==null){return false;}
-
         if (isCanBeNull && arg.isEmpty()){return true;}
         if (!isCanBeNull && arg.isEmpty()){return false;}
         if (type.getClas()==String.class ){return (!arg.contains(" ")) && (!arg.contains("\t")) && (!arg.contains("\n")) ;}
@@ -26,7 +24,7 @@ public class Validator {
         Class<?>[] parameterTypes = {String.class};
         Method method = null;
         //если это мой класс enum
-        if (type.getClas()== TicketType.class ||type.getClas()== Commands.class||type.getClas()== VenueType.class ){
+        if (type.getClas()== TicketType.class ||type.getClas()== Comands.class||type.getClas()== VenueType.class ){
             arg=arg.toLowerCase();
             for (Object enumValue : type.getClas().getEnumConstants()) {
                if (enumValue.toString().toLowerCase().equals(arg)){
